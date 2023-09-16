@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-6">
+    <table class="table " id="cityOutputTable" >
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">City</th>
+          <th scope="col">6 AM</th>
+          <th scope="col">12 PM</th>
+          <th scope="col">6 PM</th>
+          <th scope="col">12 AM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let city of weather$ | async">
+          <td scope="row">{{city.city.name}}</td>
+          <td scope="row">{{city.list[0].main.temp}} &deg;</td>
+          <td scope="row">{{city.list[2].main.temp}} &deg;</td>
+          <td scope="row">{{city.list[4].main.temp}} &deg; </td>
+          <td scope="row">{{city.list[6].main.temp}} &deg;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

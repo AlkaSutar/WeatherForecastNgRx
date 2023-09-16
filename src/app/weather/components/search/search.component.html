@@ -1,0 +1,27 @@
+<form class="form-inline mb-5" [formGroup]="searchCityForm" (ngSubmit)="search()" novalidate>
+  <div class="form-group row pl-0">
+    <div class="col-4">
+      <input class="form-control" id="city" name="city" placeholder="City" type="text" formControlName="city"
+        required>
+    </div>
+    <div class="col-3 btnDiv">
+      <button class="btn-search btn btn-primary " type="submit" id="searchCityBtn"
+      [disabled]="searchCityForm.invalid">Search</button>
+    </div>
+    
+  </div>
+
+  <div class="row ml-3">
+    <div *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">
+      <div *ngIf="city.errors.required" id="searchInputRequiredError">
+        <small>Input required.</small>
+      </div>
+      <div *ngIf="city.errors.minlength" id="searchInputMinLengthError">
+        <small>Minimum 2 characters.</small>
+      </div>
+      <div *ngIf="city.errors.pattern" id="searchInputInvalidInputError">
+        <small>Invalid characters: only a-z A-Z and space allowed.</small>
+      </div>
+    </div>
+  </div>
+</form>
